@@ -1,36 +1,3 @@
-<script setup>
-const contact = [
-  {
-    media: 'Facebook',
-    url: 'https://facebook.com/jonathanlawhh',
-    icon: 'fb.svg',
-  },
-  {
-    media: 'GitHub',
-    url: 'https://github.com/jonathanlawhh',
-    icon: 'github.svg',
-  },
-  {
-    media: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/jonathanlawhh/',
-    icon: 'linkedin.svg',
-  },
-  {
-    media: 'YouTube',
-    url: 'https://www.youtube.com/channel/UC3c-D9k1Q4VhbXalew1N-Ag/featured',
-    icon: 'youtube.svg',
-  },
-];
-
-function jumpUp() {
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth',
-  });
-}
-</script>
-
 <template>
   <footer class="site-footer">
     <div class="footer-top">
@@ -43,9 +10,6 @@ function jumpUp() {
         >
           jonathanlawhh.com
         </a>
-        <button type="button" class="a-custom-button" @click="jumpUp">
-          Jump back up
-        </button>
       </div>
       <div class="footer-divider" aria-hidden="true" />
     </div>
@@ -59,21 +23,6 @@ function jumpUp() {
       >
         <strong>Jonathan Law Hui Hao</strong>
       </a>
-
-      <div class="footer-socials">
-        <a
-          v-for="c in contact"
-          :key="c.media"
-          :href="c.url"
-          target="_blank"
-          rel="noopener"
-          class="link-social-media"
-          :aria-label="c.media"
-          :title="c.media"
-        >
-          <img :src="`/icons/${c.icon}`" :alt="c.media" loading="lazy" />
-        </a>
-      </div>
     </div>
   </footer>
 </template>
@@ -95,7 +44,6 @@ function jumpUp() {
 .footer-actions {
   display: flex;
   align-items: center;
-  gap: 24px;
   margin-bottom: 10px;
 }
 
@@ -108,21 +56,13 @@ function jumpUp() {
 .footer-bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: flex-start;
   padding-top: 14px;
 }
 
 .footer-author {
   font-size: 13px;
   letter-spacing: 0.02em;
-}
-
-.footer-socials {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-left: auto;
 }
 
 .a-custom-button {
@@ -169,46 +109,9 @@ function jumpUp() {
   width: 0;
 }
 
-.link-social-media {
-  display: inline-block;
-  position: relative;
-  padding-bottom: 4px;
-  transition: 0.3s ease-in-out;
-}
-
-.link-social-media > img {
-  display: block;
-  width: 24px;
-  height: 24px;
-}
-
-.link-social-media:hover {
-  transform: translateY(-4px);
-}
-
-.link-social-media::before {
-  width: 0;
-  height: 100%;
-  content: ' ';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transition: width 0.2s ease-out;
-}
-
-.link-social-media:hover::before {
-  width: 100%;
-  border-bottom: 2px var(--custom-pink) solid;
-}
-
 @media (max-width: 640px) {
   .footer-divider {
     width: 100%;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-end;
   }
 }
 </style>
